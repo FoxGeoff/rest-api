@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/FoxGeoff/rest-api/issues"
   },
-  "homepage": "https://github.com/FoxGeoff/rest-api#readme"
+  "homepage": "https://github.com/FoxGeoff/rest-api#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
 }
