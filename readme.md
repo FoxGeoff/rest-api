@@ -4,6 +4,8 @@
 
 1. Video Ref: <https://app.pluralsight.com/course-player?clipId=bd268f58-17a1-4dc5-937c-8221c2949ad4>
 
+## Module 2: What is REST
+
 ### Kanban Task: Setup Your Enviroment
 
 Use the bash shell for running the commands
@@ -47,3 +49,28 @@ app.listen(port, () => {
   ```
 
 1. Run: 'npm run lint -- --init'
+
+### Task: Add nodemon
+
+1. Run 'npm i nodemon'
+2. Add to packaage.json scripts "start": "nodemon app.js"
+
+```json
+/* packeage.json */
+...
+},
+  "nodemonConfig": {
+    "restartable": "rs",
+    "ignore": [
+      "node_modules/**/node_modules"
+    ],
+    "delay": "2500",
+    "env": {
+      "NODE_ENV": "development",
+      "port": 4201
+    }
+  }
+  ...
+  ```
+
+## Module 3: Getting Data
