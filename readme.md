@@ -17,18 +17,33 @@ Use the bash shell for running the commands
 
 ```javascript
 /* file app.js */
-var express = require('express');
+const express = require('express');
 
-var app = express();
+const app = express();
 
-var port = process.env.PORT || 3001;
+const port = process.env.PORT || 3001;
 
 app.get('/', (req, res) => {
-    res.send('Hello from my first API');
-
+  res.send('Hello from my first API');
 });
 
-app.listen(port, ()=>{
-    console.log("running on port " + port);
+app.listen(port, () => {
+  // eslint-disable-next-line no-console
+  console.log(`running on port ${port}`);
 });
 ```
+
+## Kanban Task: Setting up some tools (video)
+
+1. Run: 'npm i eslint -D'
+2. Add to package.json
+
+```json
+"scripts": {
+    "lint":"lint .", 
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  ...
+  ```
+
+1. Run: 'npm run lint -- --init'

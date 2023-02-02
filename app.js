@@ -1,14 +1,14 @@
-var express = require('express');
+const express = require('express');
 
-var app = express();
+const app = express();
 
-var port = process.env.PORT || 3001;
+const port = process.env.PORT || 3001;
 
 app.get('/', (req, res) => {
-    res.send('Hello from my first API');
-
+  res.send('Hello from my first API');
 });
 
-app.listen(port, ()=>{
-    console.log("running on port " + port);
+app.listen(port, () => {
+  // eslint-disable-next-line no-console
+  console.log(`running on port ${port}`);
 });
