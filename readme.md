@@ -74,3 +74,18 @@ app.listen(port, () => {
   ```
 
 ## Module 3: Getting Data
+
+### Task: impimenting http Get (Bookrouter)
+
+```Javascript
+/* Task: implimenting http Get (Bookrouter) */
+const bookRouter = express.Router();
+
+bookRouter.route('/books')
+  .get((req, res) => {
+    const response = { hello: 'This is my response!' };
+    res.json(response);
+  });
+app.use('/api', bookRouter);
+// END
+```
