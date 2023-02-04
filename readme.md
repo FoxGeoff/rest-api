@@ -102,3 +102,6 @@ app.use('/api', bookRouter);
 2. Time in video @ 2:40/10:33 continue after data is loaded into Db BookAPI/BOOKS collection
 
 ### Task pull data fro MongoDB (2:35/10:33)
+
+1. Run 'npm i mongoose'
+2. Update app.js code
