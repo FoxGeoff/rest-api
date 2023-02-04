@@ -89,3 +89,16 @@ bookRouter.route('/books')
 app.use('/api', bookRouter);
 // END
 ```
+
+## Kanban Task: Video Wiring up MongoDB
+
+### Task: Import Books into Database
+
+1. Create data file 'booksJson.js'
+
+### FIX: Work around to upload books data
+
+1. We will do this manually because fails @ video <https://app.pluralsight.com/course-player?clipId=9714f0a3-495d-4244-902c-5728ed011df1>
+2. Time in video @ 2:40/10:33 continue after data is loaded into Db BookAPI/BOOKS collection
+
+### Task pull data fro MongoDB (2:35/10:33)

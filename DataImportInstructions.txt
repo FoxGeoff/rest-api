@@ -1,0 +1,6 @@
+To import Book data into your MongoDB database.
+Make sure MongoDB is running then
+run from 'C:\Users\foxge\Github\rest-api>' 'mongo bookAPI < booksJson.js
+
+ISSUES:
+The command fails goto the database and manually instert the data as a work around
