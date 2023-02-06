@@ -2,8 +2,10 @@ const express = require('express');
 const mongoose = require('mongoose');
 
 const app = express();
+const db = mongoose.connect('mongodb://localhost/bookAPI');
 
 const port = process.env.PORT || 3001;
+const Book = require('.models/bookModel');
 
 // Task: impimenting http Get (Bookrouter)
 /* http://localhost:4201/api/books */

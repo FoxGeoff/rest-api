@@ -101,7 +101,23 @@ app.use('/api', bookRouter);
 1. We will do this manually because fails @ video <https://app.pluralsight.com/course-player?clipId=9714f0a3-495d-4244-902c-5728ed011df1>
 2. Time in video @ 2:40/10:33 continue after data is loaded into Db BookAPI/BOOKS collection
 
-### Task pull data fro MongoDB (2:35/10:33)
+### Task: pull data fro MongoDB (2:35/10:33)
 
 1. Run 'npm i mongoose'
 2. Update app.js code
+3. Add bookModel.js
+
+```Javascript
+const mongoose = require('mongoose');
+
+const { Schema } = mongoose;
+
+const book = new Schema({
+  title: { type: String },
+  author: { type: String },
+  genre: { type: String },
+  read: { type: Boolean, default: fasle },
+});
+
+module.exports = mongoose.model('Book,', bookModel);
+```
