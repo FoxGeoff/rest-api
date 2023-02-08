@@ -1,29 +1,37 @@
+/* eslint-disable no-console */
 const express = require('express');
 const mongoose = require('mongoose');
+const Book = require('./models/bookModel');
 
 const app = express();
-const db = mongoose.connect('mongodb://localhost/bookAPI');
+/* Used to fix warning */
+mongoose.set('strictQuery', false);
 
-const port = process.env.PORT || 3001;
-const Book = require('.models/bookModel');
+const db = mongoose.connect('mongodb://127.0.0.1:27017/bookAPI');
 
-// Task: impimenting http Get (Bookrouter)
-/* http://localhost:4201/api/books */
+db.then(
+  () => console.log('DB Connection Successful '),
+  (err) => console.log(`Error in connecting to DB${err}`)
+);
+
 const bookRouter = express.Router();
+const port = process.env.PORT || 3001;
 
-bookRouter.route('/books')
-  .get((req, res) => {
-    const response = { hello: 'This is my response!' };
-    res.json(response);
+/* http://localhost:4201/api/books */
+bookRouter.route('/books').get((req, res) => {
+  Book.find((err, books) => {
+    if (err) {
+      return res.send(err);
+    }
+    return res.json(books);
   });
+});
 app.use('/api', bookRouter);
-// END
 
 app.get('/', (req, res) => {
   res.send('Hello from my first API');
 });
 
 app.listen(port, () => {
-  // eslint-disable-next-line no-console
   console.log(`running on port ${port}`);
 });
