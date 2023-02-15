@@ -23,19 +23,18 @@ const bookRouter = express.Router();
 const port = process.env.PORT || 3001;
 
 /* http://localhost:4201/api/books */
-bookRouter.route('/books')
-  .get(cors(), (req, res) => {
-    const query = {};
-    if (req.query.genre) {
-      query.genre = req.query.genre;
+bookRouter.route('/books').get(cors(), (req, res) => {
+  const query = {};
+  if (req.query.genre) {
+    query.genre = req.query.genre;
+  }
+  Book.find(query, (err, books) => {
+    if (err) {
+      return res.send(err);
     }
-    Book.find(query, (err, books) => {
-      if (err) {
-        return res.send(err);
-      }
-      return res.json(books);
-    });
+    return res.json(books);
   });
+});
 
 app.use('/api', bookRouter);
 
