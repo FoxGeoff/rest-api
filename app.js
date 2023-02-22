@@ -18,11 +18,6 @@ const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error'));
 db.once('open', () => {
   console.log('Connected to MongoDb');
-  /*
-  app.listen(app.get('port'), () => {
-    console.log(`API Server Listening on port ${app.get('port')}!`);
-  });
-  */
 });
 
 const bookRouter = express.Router();
