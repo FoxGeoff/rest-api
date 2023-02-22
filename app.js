@@ -28,7 +28,7 @@ db.once('open', () => {
 const bookRouter = express.Router();
 const port = process.env.PORT || 3001;
 
-/* http://localhost:4201/api/books */
+/* http://localhost:4200/api/books */
 bookRouter.route('/books').get(cors(), (req, res) => {
   const query = {};
   if (req.query.genre) {
@@ -41,7 +41,6 @@ bookRouter.route('/books').get(cors(), (req, res) => {
     return res.json(books);
   });
 });
-
 app.use('/api', bookRouter);
 
 app.get('/', (req, res) => {
