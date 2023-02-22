@@ -12,12 +12,18 @@ const app = express();
 /* Used to fix warning */
 mongoose.set('strictQuery', false);
 
-const db = mongoose.connect('mongodb://127.0.0.1:27017/bookAPI');
+mongoose.connect('mongodb://127.0.0.1:27017/bookAPI');
+const db = mongoose.connection;
 
-db.then(
-  () => console.log('DB Connection Successful '),
-  (err) => console.log(`Error in connecting to DB${err}`)
-);
+db.on('error', console.error.bind(console, 'connection error'));
+db.once('open', () => {
+  console.log('Connected to MongoDb');
+  /*
+  app.listen(app.get('port'), () => {
+    console.log(`API Server Listening on port ${app.get('port')}!`);
+  });
+  */
+});
 
 const bookRouter = express.Router();
 const port = process.env.PORT || 3001;
