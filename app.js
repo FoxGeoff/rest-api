@@ -6,7 +6,7 @@ const cors = require('cors');
 const Book = require('./models/bookModel');
 
 const app = express();
-// cors
+// cors not working here
 // app.use(cors);
 
 /* Used to fix warning */
