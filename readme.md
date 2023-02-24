@@ -121,3 +121,8 @@ const book = new Schema({
 
 module.exports = mongoose.model('Book,', bookModel);
 ```
+
+### Task: GET with query string
+
+1. video ref: <https://app.pluralsight.com/course-player?clipId=30f00928-05f6-4f89-8f8d-eb1b97ae9ffe>
+2. Video @1:04/3:09

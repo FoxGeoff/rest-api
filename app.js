@@ -24,8 +24,10 @@ const bookRouter = express.Router();
 const port = process.env.PORT || 3001;
 
 /* http://localhost:4200/api/books */
+/* http://localhost:4200/api/books?genre=Fantasy */
+/* http://localhost:4200/api/books?genre=Historical%20Fiction */
 bookRouter.route('/books').get(cors(), (req, res) => {
-  const query = {};
+  const { query } = req;
   if (req.query.genre) {
     query.genre = req.query.genre;
   }
