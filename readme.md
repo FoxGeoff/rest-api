@@ -135,3 +135,20 @@ module.exports = mongoose.model('Book,', bookModel);
     query.genre = req.query.genre;
   }
 ```
+
+### Task: Getting a single item
+
+1. video ref <https://app.pluralsight.com/course-player?clipId=386c084b-8589-4288-9d28-7140954bd401>
+
+```javascript
+/* Get a single book by id */
+/* http://localhost:4200/api/books/63f57f5b5b1d562c5e3b49e0 */
+bookRouter.route('/books/:id').get((req, res) => {
+  Book.findById(req.params.id, (err, book) => {
+    if (err) {
+      return res.send(err);
+    }
+    return res.json(book);
+  });
+});
+```

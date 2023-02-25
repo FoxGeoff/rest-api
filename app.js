@@ -28,13 +28,11 @@ const port = process.env.PORT || 3001;
 /* http://localhost:4200/api/books?genre=Historical%20Fiction */
 bookRouter.route('/books').get(cors(), (req, res) => {
   // const { query } = req;
-
   // FIX returns all result if querystring fails
   const query = {};
   if (req.query.genre) {
     query.genre = req.query.genre;
   }
-
   Book.find(query, (err, books) => {
     if (err) {
       return res.send(err);
@@ -42,6 +40,18 @@ bookRouter.route('/books').get(cors(), (req, res) => {
     return res.json(books);
   });
 });
+
+/* Get a single book by id */
+/* http://localhost:4200/api/books/63f57f5b5b1d562c5e3b49e0 */
+bookRouter.route('/books/:id').get((req, res) => {
+  Book.findById(req.params.id, (err, book) => {
+    if (err) {
+      return res.send(err);
+    }
+    return res.json(book);
+  });
+});
+
 app.use('/api', bookRouter);
 
 app.get('/', (req, res) => {
