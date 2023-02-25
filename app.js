@@ -27,10 +27,14 @@ const port = process.env.PORT || 3001;
 /* http://localhost:4200/api/books?genre=Fantasy */
 /* http://localhost:4200/api/books?genre=Historical%20Fiction */
 bookRouter.route('/books').get(cors(), (req, res) => {
-  const { query } = req;
+  // const { query } = req;
+
+  // FIX returns all result if querystring fails
+  const query = {};
   if (req.query.genre) {
     query.genre = req.query.genre;
   }
+
   Book.find(query, (err, books) => {
     if (err) {
       return res.send(err);

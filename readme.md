@@ -126,3 +126,12 @@ module.exports = mongoose.model('Book,', bookModel);
 
 1. video ref: <https://app.pluralsight.com/course-player?clipId=30f00928-05f6-4f89-8f8d-eb1b97ae9ffe>
 2. Video @1:04/3:09
+3. FIX returns all result if querystring fails
+
+```Javascript
+ // FIX returns all result if querystring fails
+  const query = {};
+  if (req.query.genre) {
+    query.genre = req.query.genre;
+  }
+```
