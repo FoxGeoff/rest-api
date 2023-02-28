@@ -156,4 +156,3 @@ bookRouter.route('/books/:id').get((req, res) => {
 ## Task: Posting Data
 
 1. video ref <https://app.pluralsight.com/course-player?clipId=ac8ab997-a18a-40e3-9758-c194d8d8b1bc>
-2. vvv
