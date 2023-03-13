@@ -6,8 +6,8 @@ const cors = require('cors');
 const Book = require('./models/bookModel');
 
 const app = express();
-// cors not working here
-// app.use(cors);
+
+app.use(cors());
 
 /* Used to fix warning */
 mongoose.set('strictQuery', false);
@@ -26,7 +26,7 @@ const port = process.env.PORT || 3001;
 /* http://localhost:4200/api/books */
 /* http://localhost:4200/api/books?genre=Fantasy */
 /* http://localhost:4200/api/books?genre=Historical%20Fiction */
-bookRouter.route('/books').get(cors(), (req, res) => {
+bookRouter.route('/books').get((req, res) => {
   // const { query } = req;
   // FIX returns all result if querystring fails
   const query = {};
